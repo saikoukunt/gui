@@ -1,10 +1,5 @@
 # Vue.js Essentials
 
-Source: Vue.js
-Chapter: 1
-Created time: December 3, 2023 12:30 PM
-Date: December 5, 2023 12:04 AM
-
 - An application instance won’t render until its `.mount()` method is called, Vue will automatically use the container’s `innerHTML` as the template if the root component doesn’t have a `template`
 - The application instance exposes a `.config` object that allows us to configure app-level options like error handling. These must be applied before mounting the app
 
@@ -97,7 +92,7 @@ Date: December 5, 2023 12:04 AM
     
 - **`v-else-if`:** `v-else` serves as an else if block for `v-if`. It can be chained multiple times and must immediately follow a `v-if` or `v-else-if` element.
 - **`v-if` on `<template>`:** `v-if` can only be applied to single elements since it is a directive. If we want to toggle more than one element, we can wrap then in a `<template>` element and use `v-if` on the template.
-- `**v-show`:** Similar to `v-if` in functionality, but elements with `v-show` are rendered into the DOM with the CSS property `display: false`, while `v-if` properly destroys and re-creates event listeners and child components inside the conditional block.
+- **`v-show`:** Similar to `v-if` in functionality, but elements with `v-show` are rendered into the DOM with the CSS property `display: false`, while `v-if` properly destroys and re-creates event listeners and child components inside the conditional block.
 
 ### List Rendering
 
@@ -112,7 +107,7 @@ Date: December 5, 2023 12:04 AM
     </li>
     ```
     
-- `**v-for` with an Object:** We can also use `v-for` to iterate through the properties of an object, with second and third aliases for the property’s name and index, respectively —
+- **`v-for` with an Object:** We can also use `v-for` to iterate through the properties of an object, with second and third aliases for the property’s name and index, respectively —
     
     ```jsx
     const myObject = reactive({
@@ -127,7 +122,7 @@ Date: December 5, 2023 12:04 AM
     ```
     
 - **`v-for` with a Range/on `<template>`:** `v-for` can also take an integer in place of a list. In this case, it will repeat the template that many times. Like `v-if`, `v-for` can be used on `<template>` elements if we want to render a block of elements.
-- ************Maintaining State with `key`:** To make view reuse and reorder existing stateful DOM elements when the order of elements in the underlying list changes, we need to provide a unique `key` attribute for each item —
+- **Maintaining State with `key`:** To make view reuse and reorder existing stateful DOM elements when the order of elements in the underlying list changes, we need to provide a unique `key` attribute for each item —
     
     ```jsx
     <template v-for="todo in todos" :key="todo.name">
@@ -255,7 +250,7 @@ Date: December 5, 2023 12:04 AM
     </template>
     ```
     
-- **************************************Refs inside `v-for`:** When `ref` is used inside `v-for`, the ref should contain an Array value, which will be populated with the DOM elements as they are mounted.
+- **Refs inside `v-for`:** When `ref` is used inside `v-for`, the ref should contain an Array value, which will be populated with the DOM elements as they are mounted.
 - ****************************Function refs:**************************** If we want to use a function to decide where element references are stored instead, we can use the dynamic `:ref` binding and pass it an inline function or method instead of a static ref name string.
 - **************************************Ref on a Component:************************************** `ref` can also be used to create a reference to a child component, but the parent won’t be able to access properties of the child that are not exposed using the `defineExpose()` macro. **Instead, we should try to implement parent/child interactions using the standard props and emit interfaces first.**
 

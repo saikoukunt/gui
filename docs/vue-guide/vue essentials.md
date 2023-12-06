@@ -1,5 +1,10 @@
 # Vue.js Essentials
 
+Source: Vue.js
+Chapter: 1
+Created time: December 3, 2023 12:30 PM
+Date: December 5, 2023 9:58 PM
+
 - An application instance won’t render until its `.mount()` method is called, Vue will automatically use the container’s `innerHTML` as the template if the root component doesn’t have a `template`
 - The application instance exposes a `.config` object that allows us to configure app-level options like error handling. These must be applied before mounting the app
 
@@ -256,4 +261,76 @@
 
 ### Components Basics
 
--
+- ************************************************************Defining and Using Components:************************************************************ We typically define each component as a **Single-File Component** — in a dedicated file using the `.vue` extension:
+    
+    ```jsx
+    <script setup>
+    import { ref } from 'vue'
+    
+    const count = ref(0)
+    </script>
+    
+    <template>
+      <button @click="count++">You clicked me {{ count }} times.</button>
+    </template>
+    ```
+    
+    To use a child component, we can import it in the parent component and use it in the template like any HTML element. `<script setup>` automatically exposes imported components to the parent template. It’s also possible to globally register a component, which makes it available to all components without having to import it.
+    
+    - It’s recommended to use PascalCase for component names, to differentiate them from native HTML.
+- **Passing Props:** When we render multiple instances of a component, we usually want each instance to share the same structure but have different contents (e.g. tweets have different users and text but the same layout). We have to pass these data to components, which is where props come in. **Props are custom attributes that we can register on a component.** We declare props in a component’s `<script setup>` using the `defineProps()` macros:
+    
+    ```jsx
+    <!-- BlogPost.vue -->
+    <script setup>
+    defineProps(['title'])
+    </script>
+    
+    <template>
+      <h4>{{ title }}</h4>
+    </template>
+    ```
+    
+    Once a prop is registered, we can pass data to it as a custom attribute — `<BlogPost title="My journey with Vue" />`. If we have an array of posts, for example, we can use `v-for` on the component to render one component for each post. We can also use the `:` shorthand for `v-bind` to pass dynamic prop values.
+    
+- ****************************Listening to Events:**************************** Some features might require the child component to send messages to the parent. To solve this, components provide a custom events system. The parent can use `v-on` or `@` to listen to an event emitted by a child component —
+    
+    ```jsx
+    <BlogPost
+      ...
+      @enlarge-text="postFontSize += 0.1"
+     />
+    ```
+    
+    ```jsx
+    <!-- BlogPost.vue, omitting <script> -->
+    <template>
+      <div class="blog-post">
+        <h4>{{ title }}</h4>
+        <button @click="$emit('enlarge-text')">Enlarge text</button>
+      </div>
+    </template>
+    ```
+    
+    In this example, the child component used the built-in `$emit` method with the event name to emit the event. The listener defined in the component instance can then trigger the specified callback. Optionally, we can declare emitted events using the `defineEmits()` macro, which documents all the events that a component emits and optionally validates them — `const emit = defineEmits(['enlarge-text'])`. The return `emit` function can be used to emit events.
+    
+- **Content Distribution with Slots:** It’s sometimes useful to be able to pass content to a component like this — `<AlertBox>  Something bad happened.</AlertBox>`. We can do this using the `<slot>` element in the child component template —
+    
+    ```jsx
+    <template>
+      <div class="alert-box">
+        <strong>This is an Error for Demo Purposes</strong>
+        <slot />
+      </div>
+    </template>
+    
+    <style scoped>
+    .alert-box {
+      /* ... */
+    }
+    </style>
+    ```
+    
+    When an instance of the component is created, the `<slot>` tag will be replaced by the content between the `<ChildComponent>` tags.
+    
+- **************************************Dynamic Components:************************************** It’s sometimes useful to be able to switch between components, like for tabs in a browser. We can do this using Vue’s `<component>` element with the `is` attribute — `<component :is="tabs[currentTab]"></component>`, where `tabs[currentTab]` can be the name string of a registered component or the actual imported component.

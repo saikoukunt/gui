@@ -1,9 +1,6 @@
 # Vue.js Essentials
 
-Source: Vue.js
-Chapter: 1
-Created time: December 3, 2023 12:30 PM
-Date: December 5, 2023 9:58 PM
+** Note: ** This is a summary of part of the [official Vue guide](https://vuejs.org/guide/essentials/application.html)
 
 - An application instance won’t render until its `.mount()` method is called, Vue will automatically use the container’s `innerHTML` as the template if the root component doesn’t have a `template`
 - The application instance exposes a `.config` object that allows us to configure app-level options like error handling. These must be applied before mounting the app

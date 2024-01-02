@@ -1,8 +1,7 @@
 <template>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
+    <DataViewer />
 </template>
-  
-<script setup>
-console.log('👋 This message is being logged by "App.vue", included via Vite');
+
+<script setup lang='ts'>
+import DataViewer from '@/frontend/dataviewer/DataViewer.vue'
 </script>

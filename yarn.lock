@@ -2415,6 +2415,11 @@
     "merge2" "^1.4.1"
     "slash" "^3.0.0"
 
+"golden-layout@^2.6.0":
+  "integrity" "sha512-sIVQCiRWOymHbVD1Aw/T9/ijbPYAVGBlgGYd1N9MRKfcyBNSpjr87Vg9nSHm+RCT8ELrvK8IJYJV0QRJuVUkCQ=="
+  "resolved" "https://registry.npmjs.org/golden-layout/-/golden-layout-2.6.0.tgz"
+  "version" "2.6.0"
+
 "gopd@^1.0.1":
   "integrity" "sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA=="
   "resolved" "https://registry.npmjs.org/gopd/-/gopd-1.0.1.tgz"
@@ -4529,9 +4534,9 @@
   "version" "1.1.2"
 
 "vite@^4.0.0 || ^5.0.0", "vite@^4.1.1":
-  "integrity" "sha512-ulr8rNLA6rkyFAlVWw2q5YJ91v098AFQ2R0PRFwPzREXOUJQPtFUG0t+/ZikhaOCDqFoDhN6/v8Sq0o4araFAw=="
-  "resolved" "https://registry.npmjs.org/vite/-/vite-4.5.0.tgz"
-  "version" "4.5.0"
+  "integrity" "sha512-AXXFaAJ8yebyqzoNB9fu2pHoo/nWX+xZlaRwoeYUxEqBO+Zj4msE5G+BhGBll9lYEKv9Hfks52PAF2X7qDYXQA=="
+  "resolved" "https://registry.npmjs.org/vite/-/vite-4.5.1.tgz"
+  "version" "4.5.1"
   dependencies:
     "esbuild" "^0.18.10"
     "postcss" "^8.4.27"

@@ -28,6 +28,13 @@
 
 import './index.css';
 import { createApp } from 'vue';
-import App from './App.vue'
+import App from '@/App.vue'
 
-createApp(App).mount('#app')
+// timeout so debugger has time to attach
+setTimeout(start, 1000);
+
+function start() {
+    console.log("Delayed for 1 second.")
+    createApp(App).mount('#app')
+} 
+
